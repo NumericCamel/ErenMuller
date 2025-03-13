@@ -3,106 +3,351 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Personal Brand</title>
+  <title>Your Name | Professional Portfolio</title>
+  <meta name="description" content="Professional portfolio showcasing skills and experience in data science and technology">
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
   <header>
     <div class="container header-container">
-      <h1 class="logo">My Personal Brand</h1>
+      <h1 class="logo">Your Name</h1>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#cv">CV</a></li>
-          <li><a href="#coverletter">Cover Letter</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h1>Hello, I'm <span class="highlight">Your Name</span></h1>
+        <h2>Data Professional & Technology Enthusiast</h2>
+        <div class="cta-buttons">
+          <a href="#contact" class="cta-button primary">Get In Touch</a>
+          <a href="#projects" class="cta-button secondary">View My Work</a>
+        </div>
+      </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <div class="section-divider"></div>
+      </div>
       <div class="about-content">
         <img src="me.jpeg" alt="Profile Picture" class="profile-img">
         <div class="about-text">
-          <h2>About Me</h2>
           <p>
-            Welcome to my personal brand website! I’m [Your Name], a creative professional with a passion for innovative solutions.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien arcu. Mauris at condimentum dui.
+            Welcome to my portfolio! I'm a passionate professional with expertise in data science and technology,
+            specializing in turning complex data into actionable insights. With experience at industry leaders like
+            Amazon and innovative companies like DataCamp and Bissel, I bring a unique perspective to solving business challenges.
+          </p>
+          <p>
+            I'm driven by the opportunity to leverage technology and data to create meaningful impact. When I'm not working,
+            you'll find me exploring new technologies, contributing to open-source projects, and sharing knowledge with the community.
+          </p>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:your.email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="section-header">
+        <h2>Professional Experience</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="content">
+        <div class="timeline">
+          <!-- Amazon Position -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Data Scientist</h3>
+              <h4>Amazon</h4>
+              <div class="timeline-date">2023 - Present</div>
+              <p>
+                Led data-driven initiatives to optimize operational efficiency across multiple departments, resulting in significant cost savings.
+                Developed and implemented machine learning models to predict customer behavior and improve personalization algorithms.
+                Collaborated with cross-functional teams to translate business requirements into technical solutions.
+              </p>
+              <div class="key-achievements">
+                <span>ML Optimization</span>
+                <span>Data Analytics</span>
+                <span>Team Leadership</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bissel Position -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Data Analyst</h3>
+              <h4>Bissel</h4>
+              <div class="timeline-date">2021 - 2023</div>
+              <p>
+                Spearheaded the development of interactive dashboards to visualize key business metrics, enabling data-driven decision making.
+                Conducted in-depth analysis of customer purchasing patterns to inform product development and marketing strategies.
+                Optimized inventory management processes through predictive modeling, reducing costs and improving supply chain efficiency.
+              </p>
+              <div class="key-achievements">
+                <span>Data Visualization</span>
+                <span>Predictive Analytics</span>
+                <span>Process Optimization</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- DataCamp Position -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Associate Data Analyst</h3>
+              <h4>DataCamp</h4>
+              <div class="timeline-date">2019 - 2021</div>
+              <p>
+                Supported the development of educational content in data science, ensuring technical accuracy and quality.
+                Analyzed user engagement metrics to enhance learning experience and course completion rates.
+                Collaborated with instructors to create practical exercises that effectively taught complex data concepts.
+              </p>
+              <div class="key-achievements">
+                <span>Content Development</span>
+                <span>Educational Analytics</span>
+                <span>Technical Review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <div class="section-header">
+        <h2>Education</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="content">
+        <div class="education-item">
+          <h3>Master's Degree in Data Science</h3>
+          <h4>University Name</h4>
+          <div class="education-date">2017 - 2019</div>
+          <p>
+            Specialized in machine learning and statistical analysis. Thesis focused on predictive modeling for business applications.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Bachelor's Degree in Computer Science</h3>
+          <h4>University Name</h4>
+          <div class="education-date">2013 - 2017</div>
+          <p>
+            Focused on algorithms, data structures, and software development. Graduated with honors.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- CV Section -->
-    <section id="cv" class="section">
-      <div class="content">
-        <h2>Curriculum Vitae</h2>
-        <h3>Professional Summary</h3>
-        <p>
-          Experienced professional with a strong background in technology and innovation. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-        <h3>Experience</h3>
-        <ul>
-          <li>
-            <strong>Job Title - Company Name</strong> (Year - Year)
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae orci nec urna interdum tempor.
-            </p>
-          </li>
-        </ul>
-        <h3>Education</h3>
-        <ul>
-          <li>
-            <strong>Degree - Institution</strong> (Year - Year)
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-          </li>
-        </ul>
-        <h3>Skills</h3>
-        <p>
-          HTML, CSS, JavaScript, React, Node.js, and more.
-        </p>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <h2>Skills & Expertise</h2>
+        <div class="section-divider"></div>
       </div>
-    </section>
-
-    <!-- Cover Letter Section -->
-    <section id="coverletter" class="section">
       <div class="content">
-        <h2>Cover Letter</h2>
-        <p>
-          Dear Recruiter, <br>
-          I am excited to apply for the [Position Name]. With my skills and passion, I am confident in making a significant contribution to your team.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod, urna eu tincidunt consectetur, nisi nisl aliquam sem.
-        </p>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Programming & Tools</h3>
+            <div class="skill-grid">
+              <div class="skill-item">
+                <div class="skill-name">Python</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">R</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">SQL</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Tableau</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">AWS</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Data Science & Analysis</h3>
+            <div class="skill-grid">
+              <div class="skill-item">
+                <div class="skill-name">Machine Learning</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Statistical Analysis</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Data Visualization</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">Predictive Modeling</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-name">ETL Processes</div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+        <div class="section-divider"></div>
+      </div>
       <div class="content">
-        <h2>Projects</h2>
-        <div class="project-item">
-          <h3>Project Title 1</h3>
-          <p>
-            A brief description of Project Title 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-          <button class="view-project" data-title="Project Title 1" data-image="https://via.placeholder.com/600x400" data-description="Detailed description about Project Title 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-            View Project
-          </button>
+        <div class="projects-grid">
+          <div class="project-item">
+            <div class="project-image" style="background-image: url('/api/placeholder/600/400')"></div>
+            <div class="project-info">
+              <h3>Predictive Customer Analytics</h3>
+              <p>
+                Developed a machine learning model to predict customer buying patterns and optimize marketing campaigns, resulting in a 24% increase in conversion rates.
+              </p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <span>Data Visualization</span>
+              </div>
+              <button class="view-project" data-title="Predictive Customer Analytics" data-image="/api/placeholder/600/400" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
+                View Details
+              </button>
+            </div>
+          </div>
+          
+          <div class="project-item">
+            <div class="project-image" style="background-image: url('/api/placeholder/600/400')"></div>
+            <div class="project-info">
+              <h3>Supply Chain Optimization</h3>
+              <p>
+                Created an automated inventory forecasting system that reduced excess inventory by 18% and decreased stockouts by 22% through time series analysis.
+              </p>
+              <div class="project-tags">
+                <span>R</span>
+                <span>Time Series Analysis</span>
+                <span>Optimization</span>
+              </div>
+              <button class="view-project" data-title="Supply Chain Optimization" data-image="/api/placeholder/600/400" data-description="This project focused on optimizing supply chain operations through advanced forecasting techniques. By implementing time series analysis models (ARIMA, Prophet) and machine learning algorithms, I created a system that accurately predicted inventory needs across multiple product categories and warehouses. The solution integrated with existing ERP systems and provided actionable recommendations for purchasing teams. The implementation reduced excess inventory by 18% and decreased stockouts by 22%, resulting in significant cost savings and improved customer satisfaction.">
+                View Details
+              </button>
+            </div>
+          </div>
+          
+          <div class="project-item">
+            <div class="project-image" style="background-image: url('/api/placeholder/600/400')"></div>
+            <div class="project-info">
+              <h3>Interactive Sales Dashboard</h3>
+              <p>
+                Designed and implemented a real-time sales performance dashboard that increased data accessibility for stakeholders and improved decision-making processes.
+              </p>
+              <div class="project-tags">
+                <span>Tableau</span>
+                <span>SQL</span>
+                <span>Data Engineering</span>
+              </div>
+              <button class="view-project" data-title="Interactive Sales Dashboard" data-image="/api/placeholder/600/400" data-description="This project involved creating a comprehensive, interactive sales dashboard that provided real-time insights into sales performance across regions, products, and customer segments. The solution involved designing an efficient data pipeline to extract and transform data from multiple sources, then creating intuitive visualizations that enabled stakeholders to quickly identify trends and opportunities. The dashboard featured drill-down capabilities, customizable filters, and automated alerts for key performance indicators. The implementation significantly improved the company's ability to respond to market changes and identify growth opportunities.">
+                View Details
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="project-item">
-          <h3>Project Title 2</h3>
-          <p>
-            A brief description of Project Title 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-          <button class="view-project" data-title="Project Title 2" data-image="https://via.placeholder.com/600x400" data-description="Detailed description about Project Title 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-            View Project
-          </button>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2>Get In Touch</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="content">
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>your.email@example.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+1 (555) 123-4567</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Your City, State</span>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="https://github.com/yourusername" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://twitter.com/yourhandle" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3>Send Me a Message</h3>
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -113,16 +358,41 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2 id="modal-title">Project Title</h2>
-      <img id="modal-image" src="https://via.placeholder.com/600x400" alt="Project Image">
+      <img id="modal-image" src="/api/placeholder/600/400" alt="Project Image">
       <p id="modal-description">Detailed project description goes here.</p>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 My Personal Brand. All rights reserved.</p>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('nav ul');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
     // Modal functionality
     const modal = document.getElementById("project-modal");
     const modalTitle = document.getElementById("modal-title");
@@ -152,6 +422,33 @@
       if (e.target === modal) {
         modal.classList.remove("active");
       }
+    });
+    
+    // Form submission handler
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // In a real implementation, you would add code here to send the form data
+      alert('Thanks for your message! I will get back to you soon.');
+      contactForm.reset();
+    });
+    
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
     });
   </script>
 </body>
