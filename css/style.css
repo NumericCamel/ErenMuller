@@ -1,25 +1,24 @@
-/* Define Color Palette using CSS Variables */
+/* Define Color Palette and Font */
 :root {
   --color-bg: #C8C6A7;
-  --color-accent1: #92967D;
-  --color-accent2: #6E7C7C;
+  --color-light: #92967D;
+  --color-medium: #6E7C7C;
   --color-dark: #435560;
+  --font-primary: 'Montserrat', sans-serif;
   --transition-speed: 0.3s;
 }
 
-/* Global Reset and Styles */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-primary);
   background-color: var(--color-bg);
   color: var(--color-dark);
   line-height: 1.6;
@@ -32,105 +31,149 @@ header {
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 100;
+  width: 100%;
+  z-index: 1000;
 }
-
 .header-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
-
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
 }
-
 nav ul {
   list-style: none;
   display: flex;
 }
-
 nav ul li {
-  margin-left: 1.5rem;
+  margin-left: 2rem;
 }
-
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  font-weight: 500;
+  font-weight: 600;
   transition: color var(--transition-speed);
 }
-
 nav ul li a:hover {
-  color: var(--color-accent2);
+  color: var(--color-medium);
 }
 
 /* Sections */
 .section {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.8s ease-out;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-out;
 }
-
-.section:not(:last-child) {
-  margin-bottom: 2rem;
+.content {
+  margin: 0 auto;
+  padding: 1rem;
 }
-
 .content h2 {
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--color-dark);
-  border-bottom: 2px solid var(--color-accent1);
+  border-bottom: 2px solid var(--color-light);
   padding-bottom: 0.5rem;
 }
-
 .content h3 {
+  font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
-  color: var(--color-accent2);
+  color: var(--color-medium);
 }
 
 /* Project Items */
 .project-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: var(--color-accent1);
+  background-color: var(--color-light);
   border-radius: 8px;
-  transition: transform var(--transition-speed);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
-
 .project-item:hover {
   transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
-
 .project-item h3 {
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
   color: #fff;
 }
-
 .project-item p {
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
-
-.project-item a {
-  text-decoration: none;
+.view-project {
+  background-color: var(--color-medium);
+  border: none;
   color: #fff;
-  background-color: var(--color-accent2);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
   transition: background-color var(--transition-speed);
 }
-
-.project-item a:hover {
+.view-project:hover {
   background-color: var(--color-dark);
+}
+
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(67,85,96,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--transition-speed), visibility var(--transition-speed);
+}
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+.modal-content {
+  background-color: #fff;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  animation: slideDown 0.4s ease-out;
+}
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: var(--color-dark);
+}
+.modal-content img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.modal-content p {
+  font-size: 1rem;
+  color: var(--color-dark);
+}
+.modal .close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-dark);
 }
 
 /* Footer */
@@ -146,6 +189,16 @@ footer {
   from {
     opacity: 0;
     transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
