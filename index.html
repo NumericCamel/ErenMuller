@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
+  <title>My Personal Brand</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="container header-container">
-      <h1 class="logo">My Portfolio</h1>
+      <h1 class="logo">My Personal Brand</h1>
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
@@ -21,31 +21,33 @@
       </nav>
     </div>
   </header>
+
   <main>
+    <!-- About Section -->
     <section id="about" class="section">
       <div class="content">
         <h2>About Me</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in ex at ipsum 
-          blandit tincidunt. Donec scelerisque magna non lorem finibus, ac facilisis dolor dignissim.
+          Welcome to my personal brand website! I’m [Your Name], a creative professional with a passion for innovative solutions.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien arcu. Mauris at condimentum dui.
         </p>
       </div>
     </section>
+
+    <!-- CV Section -->
     <section id="cv" class="section">
       <div class="content">
         <h2>Curriculum Vitae</h2>
         <h3>Professional Summary</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget 
-          tellus tristique bibendum. Donec rutrum sed sem quis venenatis.
+          Experienced professional with a strong background in technology and innovation. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
         <h3>Experience</h3>
         <ul>
           <li>
             <strong>Job Title - Company Name</strong> (Year - Year)
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod 
-              purus nec tellus blandit, ac facilisis mauris interdum.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae orci nec urna interdum tempor.
             </p>
           </li>
         </ul>
@@ -64,43 +66,90 @@
         </p>
       </div>
     </section>
+
+    <!-- Cover Letter Section -->
     <section id="coverletter" class="section">
       <div class="content">
         <h2>Cover Letter</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod, urna eu 
-          tincidunt consectetur, nisi nisl aliquam sem, eu aliquam justo magna vitae quam. 
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+          Dear Recruiter, <br>
+          I am excited to apply for the [Position Name]. With my skills and passion, I am confident in making a significant contribution to your team.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod, urna eu tincidunt consectetur, nisi nisl aliquam sem.
         </p>
       </div>
     </section>
+
+    <!-- Projects Section -->
     <section id="projects" class="section">
       <div class="content">
         <h2>Projects</h2>
         <div class="project-item">
           <h3>Project Title 1</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac orci ut mauris 
-            facilisis blandit.
+            A brief description of Project Title 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <a href="#" target="_blank">View Project</a>
+          <button class="view-project" data-title="Project Title 1" data-image="https://via.placeholder.com/600x400" data-description="Detailed description about Project Title 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+            View Project
+          </button>
         </div>
         <div class="project-item">
           <h3>Project Title 2</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel ligula id mauris 
-            suscipit ultrices.
+            A brief description of Project Title 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          <a href="#" target="_blank">View Project</a>
+          <button class="view-project" data-title="Project Title 2" data-image="https://via.placeholder.com/600x400" data-description="Detailed description about Project Title 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+            View Project
+          </button>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Modal Overlay for Project Details -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modal-title">Project Title</h2>
+      <img id="modal-image" src="https://via.placeholder.com/600x400" alt="Project Image">
+      <p id="modal-description">Detailed project description goes here.</p>
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+    <p>&copy; 2025 My Personal Brand. All rights reserved.</p>
   </footer>
+
   <script>
-    // Optional JavaScript for additional interactivity can be added here.
+    // Modal functionality
+    const modal = document.getElementById("project-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalImage = document.getElementById("modal-image");
+    const modalDescription = document.getElementById("modal-description");
+    const closeBtn = document.querySelector(".modal .close");
+
+    document.querySelectorAll(".view-project").forEach(button => {
+      button.addEventListener("click", () => {
+        const title = button.getAttribute("data-title");
+        const image = button.getAttribute("data-image");
+        const description = button.getAttribute("data-description");
+
+        modalTitle.textContent = title;
+        modalImage.src = image;
+        modalDescription.textContent = description;
+        modal.classList.add("active");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+
+    // Close modal when clicking outside the modal content
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("active");
+      }
+    });
   </script>
 </body>
 </html>
