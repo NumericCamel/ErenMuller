@@ -367,16 +367,15 @@ nav ul li a.active::after {
 
 /* Timeline Content List Styling */
 .timeline-content ul {
-  list-style-position: outside;
+  list-style-type: none; /* Remove default bullets */
   padding-left: 1.2rem;
   margin-bottom: 1rem;
 }
-
 .timeline-content li {
   margin-bottom: 0.6rem;
   position: relative;
+  padding-left: 0.5rem; /* Add some padding between the custom bullet and text */
 }
-
 .timeline-content ul li::before {
   content: "";
   position: absolute;
