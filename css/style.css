@@ -855,6 +855,15 @@ footer p {
     width: 180px;
     height: 180px;
   }
+
+  .job-img {
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 90px;
+    height: 90px;
+  }
   
   .social-links {
     justify-content: center;
