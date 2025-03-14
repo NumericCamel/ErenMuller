@@ -904,3 +904,34 @@ footer p {
     height: 150px;
   }
 }
+
+/* Add these styles to your CSS file */
+#modal-media-container {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#modal-image,
+#modal-pdf {
+  width: 100%;
+  border-radius: 8px;
+}
+
+#modal-pdf {
+  min-height: 500px;
+}
+
+/* Make PDF responsive on mobile */
+@media (max-width: 768px) {
+  #modal-pdf {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  #modal-pdf {
+    min-height: 300px;
+  }
+}

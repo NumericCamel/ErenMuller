@@ -263,7 +263,7 @@
                 <span>Machine Learning</span>
                 <span>Data Visualization</span>
               </div>
-              <button class="view-project" data-title="Predictive Customer Analytics" data-image="/api/placeholder/600/400" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
+              <button class="view-project" data-title="UNICEF Award Winning Presentation" data-image="/api/placeholder/600/400" data-pdf="files/Team5_UNICEF.pdf" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
                 View Details
               </button>
             </div>
@@ -370,11 +370,12 @@
   <div id="project-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h2 id="modal-title">Official UNICEF</h2>
-      <img id="modal-image" src="/api/placeholder/600/400" alt="Project Image">
+      <h2 id="modal-title">Project Title</h2>
+      <div id="modal-media-container">
+        <img id="modal-image" src="/api/placeholder/600/400" alt="Project Image">
+        <iframe id="modal-pdf" src="" width="100%" height="500px" style="border: none; display: none;"></iframe>
+      </div>
       <p id="modal-description">Detailed project description goes here.</p>
-
-      <iframe id="files/Team5_UNICEF.pdf" src="" width="100%" height="400px" style="display: none; border: none;"></iframe>
     </div>
   </div>
 
@@ -412,6 +413,7 @@
     const modal = document.getElementById("project-modal");
     const modalTitle = document.getElementById("modal-title");
     const modalImage = document.getElementById("modal-image");
+    const modalPdf = document.getElementById("modal-pdf");
     const modalDescription = document.getElementById("modal-description");
     const closeBtn = document.querySelector(".modal .close");
 
@@ -419,10 +421,22 @@
       button.addEventListener("click", () => {
         const title = button.getAttribute("data-title");
         const image = button.getAttribute("data-image");
+        const pdf = button.getAttribute("data-pdf");
         const description = button.getAttribute("data-description");
 
         modalTitle.textContent = title;
-        modalImage.src = image;
+        
+        // Handle PDF or image display
+        if (pdf) {
+          modalImage.style.display = "none";
+          modalPdf.src = pdf;
+          modalPdf.style.display = "block";
+        } else {
+          modalPdf.style.display = "none";
+          modalImage.src = image;
+          modalImage.style.display = "block";
+        }
+        
         modalDescription.textContent = description;
         modal.classList.add("active");
       });
@@ -430,14 +444,18 @@
 
     closeBtn.addEventListener("click", () => {
       modal.classList.remove("active");
+      // Reset iframe source when closing to stop any playing content
+      modalPdf.src = "";
     });
 
     // Close modal when clicking outside the modal content
     window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.remove("active");
-      }
-    });
+  if (e.target === modal) {
+    modal.classList.remove("active");
+    // Reset iframe source when closing
+    modalPdf.src = "";
+  }
+});
     
     // Form submission handler
     const contactForm = document.getElementById('contact-form');
