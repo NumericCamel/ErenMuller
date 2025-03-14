@@ -920,25 +920,24 @@ footer p {
 }
 
 #modal-pdf {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  height: 500px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  display: none; /* Hidden by default */
 }
 
 /* Make PDF responsive on different devices */
 @media (min-width: 768px) {
-  #pdf-container {
-    padding-bottom: 100%; /* Square aspect ratio for tablets */
+  #modal-pdf {
+    height: 500px;
   }
 }
 
+
 @media (min-width: 992px) {
-  #pdf-container {
-    padding-bottom: 75%; /* Wider aspect ratio for desktops */
+  #modal-pdf {
+    height: 600px;
   }
 }
 
