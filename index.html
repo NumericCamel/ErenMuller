@@ -373,9 +373,12 @@
       <h2 id="modal-title">Project Title</h2>
       <div id="modal-media-container">
         <img id="modal-image" src="/api/placeholder/600/400" alt="Project Image">
-        <div id="pdf-container">
-          <iframe id="modal-pdf" src="" frameborder="0" style="border: none; display: none;"></iframe>
-        </div>
+        <!-- We'll keep this but only use on desktop -->
+        <iframe id="modal-pdf" src="" width="100%" height="500px" style="border: none; display: none;"></iframe>
+      </div>
+      <!-- Add PDF link for mobile -->
+      <div id="pdf-mobile-link" style="display: none; margin-bottom: 1.5rem;">
+        <a href="#" class="pdf-view-button" target="_blank">View PDF</a>
       </div>
       <p id="modal-description">Detailed project description goes here.</p>
     </div>
@@ -412,13 +415,20 @@
     });
     
     // Modal functionality
-    const modal = document.getElementById("project-modal");
+const modal = document.getElementById("project-modal");
 const modalTitle = document.getElementById("modal-title");
 const modalImage = document.getElementById("modal-image");
 const modalPdf = document.getElementById("modal-pdf");
-const pdfContainer = document.getElementById("pdf-container");
+const pdfMobileLink = document.getElementById("pdf-mobile-link");
+const pdfViewButton = document.querySelector(".pdf-view-button");
 const modalDescription = document.getElementById("modal-description");
 const closeBtn = document.querySelector(".modal .close");
+
+// Function to detect if the user is on a mobile device
+function isMobileDevice() {
+  return (window.innerWidth <= 768) || 
+         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
 document.querySelectorAll(".view-project").forEach(button => {
   button.addEventListener("click", () => {
@@ -431,26 +441,33 @@ document.querySelectorAll(".view-project").forEach(button => {
     
     // Handle PDF or image display
     if (pdf) {
-      modalImage.style.display = "none";
-      pdfContainer.style.display = "block";
-      
-      // For iOS devices, use a timeout to ensure the iframe loads properly
-      setTimeout(() => {
+      // Different handling based on device type
+      if (isMobileDevice()) {
+        // On mobile: Show image and "View PDF" button
+        modalImage.style.display = "block";
+        modalImage.src = image;
+        modalPdf.style.display = "none";
+        
+        // Update the PDF link and show it
+        pdfViewButton.href = pdf;
+        pdfMobileLink.style.display = "block";
+      } else {
+        // On desktop: Show the PDF in the iframe
+        modalImage.style.display = "none";
         modalPdf.src = pdf;
         modalPdf.style.display = "block";
-      }, 100);
+        pdfMobileLink.style.display = "none";
+      }
     } else {
-      pdfContainer.style.display = "none";
+      // No PDF, just show the image on all devices
       modalPdf.style.display = "none";
+      pdfMobileLink.style.display = "none";
       modalImage.src = image;
       modalImage.style.display = "block";
     }
     
     modalDescription.textContent = description;
     modal.classList.add("active");
-    
-    // For iOS, add a class to the body to prevent background scrolling
-    document.body.classList.add("modal-open");
   });
 });
 
@@ -468,22 +485,37 @@ window.addEventListener("click", (e) => {
 // Helper function to close modal
 function closeModal() {
   modal.classList.remove("active");
-  document.body.classList.remove("modal-open");
   
-  // Reset iframe source when closing
-  setTimeout(() => {
-    modalPdf.src = "";
-  }, 300);
+  // Reset iframe source when closing (only needed for desktop)
+  if (!isMobileDevice()) {
+    setTimeout(() => {
+      modalPdf.src = "";
+    }, 300);
+  }
 }
 
-// Add this to help with iOS scrolling issues
-document.body.addEventListener('touchmove', function(e) {
-  if (document.body.classList.contains('modal-open')) {
-    if (!modal.contains(e.target)) {
-      e.preventDefault();
+// Handle window resize to adjust display method if needed
+window.addEventListener('resize', () => {
+  // If modal is open, update the display method
+  if (modal.classList.contains('active')) {
+    const pdfSrc = modalPdf.src;
+    const imgSrc = modalImage.src;
+    
+    if (pdfSrc) {
+      if (isMobileDevice()) {
+        // Switch to mobile view
+        modalPdf.style.display = "none";
+        modalImage.style.display = "block";
+        pdfMobileLink.style.display = "block";
+      } else {
+        // Switch to desktop view
+        modalPdf.style.display = "block";
+        modalImage.style.display = "none";
+        pdfMobileLink.style.display = "none";
+      }
     }
   }
-}, { passive: false });
+});
     
     // Form submission handler
     const contactForm = document.getElementById('contact-form');

@@ -960,3 +960,22 @@ footer p {
     font-size: 1.5rem;
   }
 }
+
+.pdf-view-button {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.pdf-view-button:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-3px);
+}
