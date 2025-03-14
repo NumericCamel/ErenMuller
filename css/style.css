@@ -420,6 +420,13 @@ nav ul li a.active::after {
   background-color: var(--color-light-gray);
   border-radius: 8px;
   border-left: 4px solid var(--color-accent);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.education-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-white);
 }
 
 .education-item h3 {
