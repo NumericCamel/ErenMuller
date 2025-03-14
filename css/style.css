@@ -921,7 +921,7 @@ footer p {
 
 #modal-pdf {
   width: 100%;
-  height: 500px;
+  height: 400px; /* Shorter default height */
   border: 1px solid #ddd;
   border-radius: 8px;
   display: none; /* Hidden by default */
@@ -930,14 +930,13 @@ footer p {
 /* Make PDF responsive on different devices */
 @media (min-width: 768px) {
   #modal-pdf {
-    height: 500px;
+    height: 400px; /* Consistent height for tablets */
   }
 }
 
-
 @media (min-width: 992px) {
   #modal-pdf {
-    height: 600px;
+    height: 400px; /* Consistent height for desktops */
   }
 }
 

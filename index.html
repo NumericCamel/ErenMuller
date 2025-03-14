@@ -254,7 +254,7 @@
           <div class="project-item">
             <div class="project-image" style="background-image: url('/api/placeholder/600/400')"></div>
             <div class="project-info">
-              <h3>Predictive Customer Analytics</h3>
+              <h3>UNICEF Award Winning Presentation</h3>
               <p>
                 Developed a machine learning model to predict customer buying patterns and optimize marketing campaigns, resulting in a 24% increase in conversion rates.
               </p>
@@ -263,7 +263,7 @@
                 <span>Machine Learning</span>
                 <span>Data Visualization</span>
               </div>
-              <button class="view-project" data-title="UNICEF Award Winning Presentation" data-image="/api/placeholder/600/400" data-pdf="files/Team5_UNICEF.pdf" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
+              <button class="view-project" data-title="UNICEF Award Winning Presentation" data-image="https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_UNICEF.svg" data-pdf="files/Team5_UNICEF.pdf" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
                 View Details
               </button>
             </div>
@@ -454,8 +454,9 @@ document.querySelectorAll(".view-project").forEach(button => {
       } else {
         // On desktop: Show the PDF in the iframe
         modalImage.style.display = "none";
-        modalPdf.src = pdf;
+        modalPdf.src = pdf + "#toolbar=0&navpanes=0&scrollbar=0"; // Remove sidebar
         modalPdf.style.display = "block";
+        modalPdf.style.height = "400px"; // Shorter height
         pdfMobileLink.style.display = "none";
       }
     } else {
