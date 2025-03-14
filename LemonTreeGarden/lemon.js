@@ -57,8 +57,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const lemons = document.querySelectorAll('.interactive-lemon');
     const exploreBtn = document.getElementById('exploreBtn');
     
+    // Container for all lemon animations
+    const createAnimationContainer = () => {
+        let container = document.querySelector('.lemon-animation-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'lemon-animation-container';
+            container.style.position = 'fixed';
+            container.style.top = '0';
+            container.style.left = '0';
+            container.style.width = '100%';
+            container.style.height = '100%';
+            container.style.pointerEvents = 'none';
+            container.style.zIndex = '9999';
+            document.body.appendChild(container);
+        }
+        return container;
+    };
+
     lemons.forEach(lemon => {
         lemon.addEventListener('click', () => {
+            const container = createAnimationContainer();
+            
             // Create multiple juice splashes
             const createSplash = (x, y, size, delay) => {
                 const splash = document.createElement('div');
@@ -74,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 splash.style.opacity = '1';
                 splash.style.transition = 'all 0.5s ease-out';
                 
-                document.querySelector('.hero-image').appendChild(splash);
+                container.appendChild(splash);
                 
                 setTimeout(() => {
                     splash.style.width = (size * 2) + 'rem';
@@ -96,42 +116,51 @@ document.addEventListener('DOMContentLoaded', function() {
             lemonPiece.style.borderRadius = '50%';
             lemonPiece.style.backgroundColor = 'var(--lemon-yellow)';
             lemonPiece.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+            lemonPiece.style.zIndex = '10000';
             
-            const startX = lemon.getBoundingClientRect().left + lemon.offsetWidth / 2;
-            const startY = lemon.getBoundingClientRect().top + lemon.offsetHeight / 2;
-            const endY = window.innerHeight;
+            const rect = lemon.getBoundingClientRect();
+            const startX = rect.left + rect.width / 2;
+            const startY = rect.top + rect.height / 2;
+            const endY = window.innerHeight - 20; // Offset to ensure visibility
             
             let posX = startX;
             let posY = startY;
-            let velocityX = (Math.random() - 0.5) * 10;
-            let velocityY = -5; // Initial upward velocity
+            let velocityX = (Math.random() - 0.5) * 15; // Increased initial velocity
+            let velocityY = -8; // Increased initial upward velocity
             let rotation = 0;
-            let rotationSpeed = (Math.random() - 0.5) * 20;
+            let rotationSpeed = (Math.random() - 0.5) * 25; // Increased rotation
             
-            document.querySelector('.hero-image').appendChild(lemonPiece);
+            container.appendChild(lemonPiece);
             
             // Physics animation
-            let gravity = 0.5;
+            let gravity = 0.6; // Increased gravity
             let bounceCount = 0;
             const maxBounces = 2;
+            let lastTime = performance.now();
             
-            function animate() {
-                velocityY += gravity;
-                posX += velocityX;
-                posY += velocityY;
-                rotation += rotationSpeed;
+            function animate(currentTime) {
+                const deltaTime = (currentTime - lastTime) / 16; // Normalize to ~60fps
+                lastTime = currentTime;
+                
+                velocityY += gravity * deltaTime;
+                posX += velocityX * deltaTime;
+                posY += velocityY * deltaTime;
+                rotation += rotationSpeed * deltaTime;
                 
                 // Bounce off walls
-                if (posX < 0 || posX > window.innerWidth) {
-                    velocityX *= -0.6;
-                    posX = posX < 0 ? 0 : window.innerWidth;
+                if (posX < 20) {
+                    posX = 20;
+                    velocityX = Math.abs(velocityX) * 0.8;
+                } else if (posX > window.innerWidth - 20) {
+                    posX = window.innerWidth - 20;
+                    velocityX = -Math.abs(velocityX) * 0.8;
                 }
                 
                 // Bounce off floor
                 if (posY > endY && bounceCount < maxBounces) {
-                    velocityY *= -0.6;
-                    velocityX *= 0.8;
                     posY = endY;
+                    velocityY = -Math.abs(velocityY) * 0.6;
+                    velocityX *= 0.8;
                     bounceCount++;
                     
                     // Create splash effect on bounce
@@ -144,7 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             const splashY = posY + (Math.random() - 0.5) * 20;
                             createSplash(splashX, splashY, 3 + Math.random() * 4, i * 100);
                         }
-                        setTimeout(() => lemonPiece.remove(), 100);
+                        setTimeout(() => {
+                            lemonPiece.remove();
+                            // Remove container if empty
+                            if (!container.children.length) {
+                                container.remove();
+                            }
+                        }, 100);
                         return;
                     }
                 }
