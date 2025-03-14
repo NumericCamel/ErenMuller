@@ -1131,3 +1131,33 @@ footer p {
   padding-top: 1rem;
   border-top: 1px solid var(--color-light);
 }
+
+.modal-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.medium-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #000;
+  color: var(--color-white);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  text-decoration: none;
+}
+
+.medium-button:hover {
+  background-color: #2b2b2b;
+  transform: translateY(-3px);
+}
+
+.medium-button i {
+  font-size: 1.1rem;
+}

@@ -367,16 +367,16 @@
             <div class="project-item">
               <div class="project-image" style="background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg')"></div>
               <div class="project-info">
-                <h3>LLM-Powered Customer Service Bot</h3>
+                <h3>Predicting IQs</h3>
                 <p>
-                  Developed an AI customer service chatbot using OpenAI's GPT models, reducing response time by 75% and handling 60% of routine customer inquiries automatically.
+                  Developed a machine learning model to predict IQ scores based on various cognitive and behavioral metrics, achieving 85% accuracy in predictions across diverse demographic groups.
                 </p>
                 <div class="project-tags">
                   <span>Python</span>
-                  <span>OpenAI API</span>
-                  <span>Natural Language Processing</span>
+                  <span>Machine Learning</span>
+                  <span>Statistical Analysis</span>
                 </div>
-                <button class="view-project" data-title="LLM-Powered Customer Service Bot" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" data-description="This project showcases the development of an advanced customer service chatbot leveraging OpenAI's GPT models. The system was designed to handle routine customer inquiries automatically while seamlessly escalating complex issues to human agents. Key features included context-aware responses, multi-turn conversations, and integration with existing customer service platforms. The implementation resulted in a 75% reduction in response time and successfully automated 60% of routine inquiries, leading to significant cost savings and improved customer satisfaction. Technologies used included Python, OpenAI API, FastAPI, and Redis for conversation state management.">
+                <button class="view-project" data-title="Predicting IQs" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" data-description="This project explores the fascinating intersection of machine learning and cognitive science, attempting to predict IQ scores using various behavioral and cognitive metrics. The model achieved 85% accuracy in predictions across diverse demographic groups, while carefully addressing ethical considerations and potential biases in the methodology. Key features included data preprocessing for fairness, ensemble learning techniques, and comprehensive validation across different population segments. The findings provide valuable insights into the relationships between various cognitive metrics and IQ scores, while highlighting important considerations for ethical AI development." data-medium-url="https://medium.com/@erenmuller/predicting-iqs-machine-learning-approach">
                   View Details
                 </button>
               </div>
@@ -489,14 +489,17 @@
       <h2 id="modal-title">Project Title</h2>
       <div id="modal-media-container">
         <img id="modal-image" src="/api/placeholder/600/400" alt="Project Image">
-        <!-- We'll keep this but only use on desktop -->
         <iframe id="modal-pdf" src="" width="100%" height="500px" style="border: none;"></iframe>
       </div>
-      <!-- Add PDF link for mobile -->
       <div id="pdf-mobile-link" style="display: none; margin-bottom: 1.5rem;">
         <a href="#" class="pdf-view-button" target="_blank">View PDF</a>
       </div>
       <p id="modal-description">Detailed project description goes here.</p>
+      <div class="modal-buttons">
+        <a id="medium-button" href="#" target="_blank" class="medium-button" style="display: none;">
+          Read on Medium <i class="fab fa-medium"></i>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -538,7 +541,7 @@
     const pdfMobileLink = document.getElementById("pdf-mobile-link");
     const pdfViewButton = document.querySelector(".pdf-view-button");
     const modalDescription = document.getElementById("modal-description");
-    const closeBtn = document.querySelector(".modal .close");
+    const closeBtn = modal.querySelector(".close");
 
     // Function to detect if the user is on a mobile device
     function isMobileDevice() {
@@ -552,34 +555,40 @@
         const image = button.getAttribute("data-image");
         const pdf = button.getAttribute("data-pdf");
         const description = button.getAttribute("data-description");
+        const mediumUrl = button.getAttribute("data-medium-url");
 
         modalTitle.textContent = title;
         
         // Handle PDF or image display
         if (pdf) {
           if (isMobileDevice()) {
-            // On mobile: Show image and "View PDF" button
             modalImage.style.display = "block";
             modalImage.src = image;
             modalPdf.style.display = "none";
             
-            // Update the PDF link and show it
             pdfViewButton.href = pdf;
             pdfMobileLink.style.display = "block";
           } else {
-            // On desktop: Show the PDF in the iframe
             modalImage.style.display = "none";
-            modalPdf.src = pdf + "#toolbar=0&navpanes=0&scrollbar=0"; // Remove sidebar
+            modalPdf.src = pdf + "#toolbar=0&navpanes=0&scrollbar=0";
             modalPdf.style.display = "block";
-            modalPdf.style.height = "400px"; // Shorter height
+            modalPdf.style.height = "400px";
             pdfMobileLink.style.display = "none";
           }
         } else {
-          // No PDF, just show the image on all devices
           modalPdf.style.display = "none";
           pdfMobileLink.style.display = "none";
           modalImage.style.display = "block";
           modalImage.src = image;
+        }
+        
+        // Add Medium article button if URL exists
+        const mediumButton = document.getElementById("medium-button");
+        if (mediumUrl && mediumButton) {
+          mediumButton.href = mediumUrl;
+          mediumButton.style.display = "inline-block";
+        } else if (mediumButton) {
+          mediumButton.style.display = "none";
         }
         
         modalDescription.textContent = description;
@@ -587,6 +596,7 @@
       });
     });
 
+    // Close modal when clicking the close button
     closeBtn.addEventListener("click", () => {
       closeModal();
     });
@@ -602,7 +612,6 @@
     function closeModal() {
       modal.classList.remove("active");
       
-      // Reset iframe source when closing (only needed for desktop)
       if (!isMobileDevice()) {
         setTimeout(() => {
           modalPdf.src = "";
