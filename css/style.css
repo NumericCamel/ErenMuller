@@ -276,6 +276,13 @@ nav ul li a.active::after {
   object-fit: cover;
   border: 5px solid var(--color-accent);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+
+a:hover .profile-img {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border-color: var(--color-secondary);
 }
 
 .about-text {

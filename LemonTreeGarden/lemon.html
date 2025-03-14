@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemon Tree Garden</title>
+    <link rel="stylesheet" href="lemon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="bg-animation">
+        <div class="lemon" id="lemon1"></div>
+        <div class="lemon" id="lemon2"></div>
+        <div class="lemon" id="lemon3"></div>
+        <div class="leaf" id="leaf1"></div>
+        <div class="leaf" id="leaf2"></div>
+        <div class="leaf" id="leaf3"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🍋</div>
+            <h1>Lemon Tree Garden</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Growing <span class="highlight">Fresh</span> Ideas</h2>
+                <p>Front-end development with a zest for innovation</p>
+                <button class="cta-button" id="exploreBtn">Explore Garden</button>
+            </div>
+            <div class="hero-image">
+                <div class="lemon-tree">
+                    <div class="trunk"></div>
+                    <div class="branches"></div>
+                    <div class="foliage"></div>
+                    <div class="interactive-lemon" id="interactiveLemon1"></div>
+                    <div class="interactive-lemon" id="interactiveLemon2"></div>
+                    <div class="interactive-lemon" id="interactiveLemon3"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About The Garden</h2>
+            <div class="about-content">
+                <p>Welcome to Lemon Tree Garden, where creativity blooms and code flourishes. This digital garden represents my passion for crafting beautiful, interactive, and accessible web experiences.</p>
+                <div class="about-feature">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Sustainable Code</h3>
+                    <p>Clean, maintainable, and optimized for growth</p>
+                </div>
+                <div class="about-feature">
+                    <div class="feature-icon">🍋</div>
+                    <h3>Fresh Design</h3>
+                    <p>Bold aesthetics with intuitive user experiences</p>
+                </div>
+                <div class="about-feature">
+                    <div class="feature-icon">🌞</div>
+                    <h3>Bright Solutions</h3>
+                    <p>Innovative approaches to complex challenges</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>Technical Harvest</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Core Technologies</h3>
+                    <div class="skill-item" data-skill="HTML5">
+                        <div class="skill-fill" style="width: 95%"></div>
+                        <span class="skill-name">HTML5</span>
+                    </div>
+                    <div class="skill-item" data-skill="CSS3">
+                        <div class="skill-fill" style="width: 90%"></div>
+                        <span class="skill-name">CSS3</span>
+                    </div>
+                    <div class="skill-item" data-skill="JavaScript">
+                        <div class="skill-fill" style="width: 88%"></div>
+                        <span class="skill-name">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <div class="skill-item" data-skill="React">
+                        <div class="skill-fill" style="width: 85%"></div>
+                        <span class="skill-name">React</span>
+                    </div>
+                    <div class="skill-item" data-skill="Vue">
+                        <div class="skill-fill" style="width: 78%"></div>
+                        <span class="skill-name">Vue</span>
+                    </div>
+                    <div class="skill-item" data-skill="GSAP">
+                        <div class="skill-fill" style="width: 80%"></div>
+                        <span class="skill-name">GSAP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Workflow</h3>
+                    <div class="skill-item" data-skill="Git">
+                        <div class="skill-fill" style="width: 92%"></div>
+                        <span class="skill-name">Git</span>
+                    </div>
+                    <div class="skill-item" data-skill="Webpack">
+                        <div class="skill-fill" style="width: 75%"></div>
+                        <span class="skill-name">Webpack</span>
+                    </div>
+                    <div class="skill-item" data-skill="Figma">
+                        <div class="skill-fill" style="width: 83%"></div>
+                        <span class="skill-name">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Project Orchard</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-image"></div>
+                    <h3>Citrus Commerce</h3>
+                    <p>An e-commerce platform with animated product showcases</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Redux</span>
+                        <span>GSAP</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </article>
+                <article class="project-card">
+                    <div class="project-image"></div>
+                    <h3>Lemon Dashboard</h3>
+                    <p>Interactive analytics dashboard with real-time data visualization</p>
+                    <div class="project-tags">
+                        <span>Vue</span>
+                        <span>D3.js</span>
+                        <span>Firebase</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </article>
+                <article class="project-card">
+                    <div class="project-image"></div>
+                    <h3>Zesty Portfolio</h3>
+                    <p>Responsive portfolio template with parallax scrolling effects</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="#" class="project-link">View Project</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h2>Let's Grow Together</h2>
+                <p>Ready to add some zest to your next project?</p>
+                <form class="contact-form">
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="footer-links">
+                <div class="social-links">
+                    <a href="#" class="social-link">GitHub</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Twitter</a>
+                </div>
+                <p class="copyright">© 2025 Lemon Tree Garden. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="lemon.js"></script>
+</body>
+</html>
