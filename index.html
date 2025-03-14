@@ -162,7 +162,13 @@
         <div class="section-divider"></div>
       </div>
       <div class="content">
-        <div class="education-item">
+        <div class="education-item clickable" data-title="Master's Degree in Data Science & Marketing Analytics" data-institution="Erasmus University of Rotterdam" data-date="2023 - 2024" data-description="During my Master's program, I specialized in advanced data science techniques and their applications in marketing analytics. Key achievements include:
+
+• Developed a thesis on predictive modeling for customer behavior in e-commerce platforms
+• Completed advanced coursework in Machine Learning, Statistical Analysis, and Marketing Analytics
+• Led a team project that won the department's Best Analytics Solution award
+• Participated in a research project using NLP for social media sentiment analysis
+• Maintained a GPA of 3.8/4.0 while collaborating on multiple industry projects">
           <h3>Master's Degree in Data Science & Marketing Analytics</h3>
           <h4>Erasmus University of Rotterdam</h4>
           <div class="education-date">2023 - 2024</div>
@@ -170,7 +176,13 @@
             Specialized in machine learning and statistical analysis. Thesis focused on predictive modeling for business applications.
           </p>
         </div>
-        <div class="education-item">
+        <div class="education-item clickable" data-title="Bachelor's Degree in Economics and Business Economics" data-institution="Erasmus University of Rotterdam" data-date="2018 - 2021" data-description="My undergraduate studies provided a strong foundation in economics and quantitative analysis. Notable accomplishments include:
+
+• Graduated with honors (cum laude) with a GPA of 3.7/4.0
+• Completed a minor in Data Analytics with focus on Python and R programming
+• Served as a teaching assistant for Statistics and Econometrics courses
+• Conducted research on the impact of AI adoption in financial markets
+• Founded the university's Data Science Club, growing it to 100+ members">
           <h3>Bachelor's Degree in Economics and Business Economics</h3>
           <h4>Erasmus University of Rotterdam</h4>
           <div class="education-date">2018 - 2021</div>
@@ -180,6 +192,21 @@
         </div>
       </div>
     </section>
+
+    <!-- Education Modal -->
+    <div id="education-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="education-modal-header">
+          <h2 id="education-modal-title">Education Title</h2>
+          <h3 id="education-modal-institution">Institution</h3>
+          <div id="education-modal-date" class="education-date"></div>
+        </div>
+        <div class="education-modal-body">
+          <p id="education-modal-description"></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Skills Section -->
     <section id="skills" class="section">
@@ -640,6 +667,37 @@
       scrollContainer.addEventListener('scroll', updateScrollButtons);
       window.addEventListener('resize', updateScrollButtons);
       updateScrollButtons(); // Initial check
+    });
+
+    // Add this to your existing script section
+    const educationModal = document.getElementById("education-modal");
+    const educationModalTitle = document.getElementById("education-modal-title");
+    const educationModalInstitution = document.getElementById("education-modal-institution");
+    const educationModalDate = document.getElementById("education-modal-date");
+    const educationModalDescription = document.getElementById("education-modal-description");
+    const educationCloseBtn = educationModal.querySelector(".close");
+
+    // Add click event listeners to education items
+    document.querySelectorAll(".education-item.clickable").forEach(item => {
+      item.addEventListener("click", () => {
+        educationModalTitle.textContent = item.getAttribute("data-title");
+        educationModalInstitution.textContent = item.getAttribute("data-institution");
+        educationModalDate.textContent = item.getAttribute("data-date");
+        educationModalDescription.textContent = item.getAttribute("data-description");
+        educationModal.classList.add("active");
+      });
+    });
+
+    // Close education modal when clicking the close button
+    educationCloseBtn.addEventListener("click", () => {
+      educationModal.classList.remove("active");
+    });
+
+    // Close education modal when clicking outside
+    window.addEventListener("click", (e) => {
+      if (e.target === educationModal) {
+        educationModal.classList.remove("active");
+      }
     });
   </script>
 </body>

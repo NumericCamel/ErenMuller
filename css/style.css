@@ -444,6 +444,47 @@ nav ul li a.active::after {
   margin-bottom: 1rem;
 }
 
+.education-item.clickable {
+  cursor: pointer;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.education-item.clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.education-modal-header {
+  margin-bottom: 2rem;
+}
+
+.education-modal-header h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-modal-header h3 {
+  color: var(--color-secondary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.education-modal-header .education-date {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.education-modal-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-dark-gray);
+}
+
+.education-modal-body p {
+  white-space: pre-line;
+}
+
 /* Skills Section */
 .skills-container {
   display: grid;
