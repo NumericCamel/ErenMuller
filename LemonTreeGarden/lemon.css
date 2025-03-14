@@ -446,35 +446,87 @@ section {
     50% { transform: translateX(-50%) rotate(5deg); }
 }
 
-.interactive-lemon {
+/* Lemon Interaction Styles */
+.lemon-piece {
     position: absolute;
-    width: 6rem;
-    height: 6rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--lemon-yellow);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.juice-splash {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(243,210,80,0.8) 0%, rgba(243,210,80,0) 70%);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.lemon-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.interactive-lemon {
+    width: 4rem;
+    height: 4rem;
     background-color: var(--lemon-yellow);
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(243, 210, 80, 0.5);
+    position: absolute;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#interactiveLemon1 {
-    top: 12rem;
-    left: 8rem;
-}
-
-#interactiveLemon2 {
-    top: 10rem;
-    right: 10rem;
-}
-
-#interactiveLemon3 {
-    top: 25rem;
-    left: 15rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .interactive-lemon:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(243, 210, 80, 0.8);
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.interactive-lemon:active {
+    transform: scale(0.95);
+}
+
+#interactiveLemon1 {
+    top: 20%;
+    right: 30%;
+    animation: float 20s infinite ease-in-out;
+}
+
+#interactiveLemon2 {
+    top: 40%;
+    right: 45%;
+    animation: float 25s infinite ease-in-out reverse;
+}
+
+#interactiveLemon3 {
+    top: 60%;
+    right: 25%;
+    animation: float 22s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-10px, 15px) rotate(5deg);
+    }
+    50% {
+        transform: translate(5px, -10px) rotate(-3deg);
+    }
+    75% {
+        transform: translate(15px, 10px) rotate(5deg);
+    }
 }
 
 /* About Section */
