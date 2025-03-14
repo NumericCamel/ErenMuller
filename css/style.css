@@ -490,17 +490,29 @@ nav ul li a.active::after {
 
 /* Projects Section */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  overflow-x: auto;
   gap: 2rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+.projects-grid::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome and Safari */
 }
 
 .project-item {
+  flex: 0 0 auto;
+  width: 350px; /* Fixed width for each project card */
   background-color: var(--color-white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  scroll-snap-align: start;
 }
 
 .project-item:hover {
@@ -880,6 +892,14 @@ footer p {
   .timeline-dot {
     left: 7px;
   }
+  
+  .scroll-button {
+    display: none; /* Hide scroll buttons on mobile */
+  }
+  
+  .project-item {
+    width: 300px; /* Slightly smaller cards on mobile */
+  }
 }
 
 @media (max-width: 576px) {
@@ -976,4 +996,42 @@ footer p {
 .pdf-view-button:hover {
   background-color: var(--color-secondary);
   transform: translateY(-3px);
+}
+
+/* Add scroll buttons for better UX */
+.projects-container {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity var(--transition-speed);
+}
+
+.scroll-button:hover {
+  opacity: 1;
+}
+
+.scroll-left {
+  left: -20px;
+}
+
+.scroll-right {
+  right: -20px;
 }
