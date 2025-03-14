@@ -334,6 +334,20 @@ nav ul li a.active::after {
   padding-left: 2.5rem;
 }
 
+.timeline-item.clickable {
+  cursor: pointer;
+}
+
+.timeline-item.clickable .timeline-content {
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+}
+
+.timeline-item.clickable:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+}
+
 .timeline-dot {
   position: absolute;
   left: 0;
@@ -1082,4 +1096,38 @@ footer p {
 
 .scroll-right {
   right: -20px;
+}
+
+/* Experience Modal Styles */
+.experience-modal-header {
+  margin-bottom: 2rem;
+}
+
+.experience-modal-header h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-modal-header h3 {
+  color: var(--color-secondary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.experience-modal-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-dark-gray);
+}
+
+.experience-modal-body p {
+  white-space: pre-line;
+  margin-bottom: 2rem;
+}
+
+.experience-modal-body .key-achievements {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-light);
 }
