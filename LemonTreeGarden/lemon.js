@@ -59,40 +59,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
     lemons.forEach(lemon => {
         lemon.addEventListener('click', () => {
-            // Create a juice splash effect
-            const splash = document.createElement('div');
-            splash.className = 'juice-splash';
-            splash.style.position = 'absolute';
-            splash.style.width = '15rem';
-            splash.style.height = '15rem';
-            splash.style.borderRadius = '50%';
-            splash.style.background = 'radial-gradient(circle, rgba(243,210,80,0.8) 0%, rgba(243,210,80,0) 70%)';
-            splash.style.top = '50%';
-            splash.style.left = '50%';
-            splash.style.transform = 'translate(-50%, -50%)';
-            splash.style.opacity = '1';
-            
-            lemon.appendChild(splash);
-            
-            // Randomize lemon position slightly
-            const currentTop = parseInt(getComputedStyle(lemon).top);
-            const currentLeft = parseInt(getComputedStyle(lemon).left);
-            
-            lemon.style.top = (currentTop + (Math.random() * 10 - 5)) + 'px';
-            lemon.style.left = (currentLeft + (Math.random() * 10 - 5)) + 'px';
-            
-            // Remove splash after animation
-            setTimeout(() => {
-                splash.style.width = '30rem';
-                splash.style.height = '30rem';
-                splash.style.opacity = '0';
+            // Create multiple juice splashes
+            const createSplash = (x, y, size, delay) => {
+                const splash = document.createElement('div');
+                splash.className = 'juice-splash';
+                splash.style.position = 'absolute';
+                splash.style.width = size + 'rem';
+                splash.style.height = size + 'rem';
+                splash.style.borderRadius = '50%';
+                splash.style.background = 'radial-gradient(circle, rgba(243,210,80,0.8) 0%, rgba(243,210,80,0) 70%)';
+                splash.style.top = y + 'px';
+                splash.style.left = x + 'px';
+                splash.style.transform = 'translate(-50%, -50%)';
+                splash.style.opacity = '1';
+                splash.style.transition = 'all 0.5s ease-out';
+                
+                document.querySelector('.hero-image').appendChild(splash);
                 
                 setTimeout(() => {
-                    splash.remove();
-                }, 500);
-            }, 10);
-            
-            // Drop a lemon piece that falls to bottom of screen
+                    splash.style.width = (size * 2) + 'rem';
+                    splash.style.height = (size * 2) + 'rem';
+                    splash.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        splash.remove();
+                    }, 500);
+                }, delay);
+            };
+
+            // Create falling lemon with physics
             const lemonPiece = document.createElement('div');
             lemonPiece.className = 'lemon-piece';
             lemonPiece.style.position = 'absolute';
@@ -100,31 +95,77 @@ document.addEventListener('DOMContentLoaded', function() {
             lemonPiece.style.height = '2rem';
             lemonPiece.style.borderRadius = '50%';
             lemonPiece.style.backgroundColor = 'var(--lemon-yellow)';
-            lemonPiece.style.top = '50%';
-            lemonPiece.style.left = '50%';
-            lemonPiece.style.transform = 'translate(-50%, -50%)';
-            lemonPiece.style.zIndex = '1';
+            lemonPiece.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
             
-            document.querySelector('.hero-image').appendChild(lemonPiece);
-            
-            // Animate falling piece
             const startX = lemon.getBoundingClientRect().left + lemon.offsetWidth / 2;
             const startY = lemon.getBoundingClientRect().top + lemon.offsetHeight / 2;
             const endY = window.innerHeight;
             
-            lemonPiece.style.top = startY + 'px';
-            lemonPiece.style.left = startX + 'px';
+            let posX = startX;
+            let posY = startY;
+            let velocityX = (Math.random() - 0.5) * 10;
+            let velocityY = -5; // Initial upward velocity
+            let rotation = 0;
+            let rotationSpeed = (Math.random() - 0.5) * 20;
             
-            setTimeout(() => {
-                lemonPiece.style.transition = 'all 1s cubic-bezier(0.2, 0.8, 0.2, 1.2)';
-                lemonPiece.style.top = endY + 'px';
-                lemonPiece.style.left = (startX + (Math.random() * 100 - 50)) + 'px';
-                lemonPiece.style.transform = 'translate(-50%, -50%) rotate(360deg)';
+            document.querySelector('.hero-image').appendChild(lemonPiece);
+            
+            // Physics animation
+            let gravity = 0.5;
+            let bounceCount = 0;
+            const maxBounces = 2;
+            
+            function animate() {
+                velocityY += gravity;
+                posX += velocityX;
+                posY += velocityY;
+                rotation += rotationSpeed;
                 
-                setTimeout(() => {
-                    lemonPiece.remove();
-                }, 1000);
-            }, 10);
+                // Bounce off walls
+                if (posX < 0 || posX > window.innerWidth) {
+                    velocityX *= -0.6;
+                    posX = posX < 0 ? 0 : window.innerWidth;
+                }
+                
+                // Bounce off floor
+                if (posY > endY && bounceCount < maxBounces) {
+                    velocityY *= -0.6;
+                    velocityX *= 0.8;
+                    posY = endY;
+                    bounceCount++;
+                    
+                    // Create splash effect on bounce
+                    createSplash(posX, posY, 5, 0);
+                    
+                    if (bounceCount === maxBounces) {
+                        // Final splatter
+                        for (let i = 0; i < 5; i++) {
+                            const splashX = posX + (Math.random() - 0.5) * 100;
+                            const splashY = posY + (Math.random() - 0.5) * 20;
+                            createSplash(splashX, splashY, 3 + Math.random() * 4, i * 100);
+                        }
+                        setTimeout(() => lemonPiece.remove(), 100);
+                        return;
+                    }
+                }
+                
+                lemonPiece.style.left = posX + 'px';
+                lemonPiece.style.top = posY + 'px';
+                lemonPiece.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+                
+                if (bounceCount < maxBounces) {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+            
+            // Shake the original lemon slightly
+            const shakeAmount = 5;
+            lemon.style.transform = `translate(${Math.random() * shakeAmount - shakeAmount/2}px, ${Math.random() * shakeAmount - shakeAmount/2}px)`;
+            setTimeout(() => {
+                lemon.style.transform = 'none';
+            }, 500);
         });
     });
     
