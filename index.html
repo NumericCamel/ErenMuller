@@ -241,53 +241,63 @@
       </div>
       <div class="content">
         <div class="skills-container">
-          <div class="skill-category">
-            <h3>Programming & Tools</h3>
+          <div class="skill-category" data-category="programming">
+            <h3><i class="fas fa-code skill-icon"></i>Programming & Tools</h3>
             <div class="skill-grid">
               <div class="skill-item">
-                <div class="skill-name">Python</div>
+                <div class="skill-name" data-level="Expert">Python</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                <div class="skill-details">Django, Flask, Pandas, NumPy, Scikit-learn</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">R</div>
+                <div class="skill-name" data-level="Advanced">R</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                <div class="skill-details">tidyverse, ggplot2, Statistical Analysis</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">SQL</div>
+                <div class="skill-name" data-level="Expert">SQL</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                <div class="skill-details">PostgreSQL, MySQL, Query Optimization</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">Tableau</div>
+                <div class="skill-name" data-level="Advanced">Tableau</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                <div class="skill-details">Dashboard Design, Data Storytelling</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">AWS</div>
+                <div class="skill-name" data-level="Proficient">AWS</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                <div class="skill-details">EC2, S3, Lambda, RDS</div>
               </div>
             </div>
           </div>
-          <div class="skill-category">
-            <h3>Data Science & Analysis</h3>
+          <div class="skill-category" data-category="data-science">
+            <h3><i class="fas fa-brain skill-icon"></i>Data Science & Analysis</h3>
             <div class="skill-grid">
               <div class="skill-item">
-                <div class="skill-name">Machine Learning</div>
+                <div class="skill-name" data-level="Expert">Machine Learning</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                <div class="skill-details">Supervised Learning, Deep Learning, NLP</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">Statistical Analysis</div>
+                <div class="skill-name" data-level="Advanced">Statistical Analysis</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                <div class="skill-details">Hypothesis Testing, Regression Analysis</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">Data Visualization</div>
+                <div class="skill-name" data-level="Expert">Data Visualization</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                <div class="skill-details">D3.js, Plotly, Matplotlib</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">Predictive Modeling</div>
+                <div class="skill-name" data-level="Advanced">Predictive Modeling</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                <div class="skill-details">Time Series Analysis, Classification</div>
               </div>
               <div class="skill-item">
-                <div class="skill-name">ETL Processes</div>
+                <div class="skill-name" data-level="Proficient">ETL Processes</div>
                 <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                <div class="skill-details">Data Pipeline Design, Automation</div>
               </div>
             </div>
           </div>
@@ -310,113 +320,83 @@
             <i class="fas fa-chevron-right"></i>
           </button>
           <div class="projects-grid">
-            <div class="project-item">
+            <div class="project-item" data-title="UNICEF Award Winning Presentation" data-image="https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_UNICEF.svg" data-pdf="files/Team5_UNICEF.pdf" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
               <div class="project-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_UNICEF.svg')"></div>
               <div class="project-info">
                 <h3>UNICEF Award Winning Presentation</h3>
-                <p>
-                  Developed a machine learning model to predict customer donation patterns and optimize donation campaigns, resulting in a 24% increase in conversion rates.
-                </p>
+                <p>Developed a machine learning model to predict customer donation patterns and optimize donation campaigns, resulting in a 24% increase in conversion rates.</p>
                 <div class="project-tags">
                   <span>Python</span>
                   <span>Machine Learning</span>
                   <span>Data Visualization</span>
                 </div>
-                <button class="view-project" data-title="UNICEF Award Winning Presentation" data-image="https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_UNICEF.svg" data-pdf="files/Team5_UNICEF.pdf" data-description="This project involved developing a sophisticated machine learning model to analyze and predict customer behavior patterns. By leveraging historical purchase data, browsing habits, and demographic information, the system was able to identify likely future purchases and optimal timing for marketing interventions. The implementation led to a 24% increase in conversion rates and a significant improvement in customer retention metrics. Technologies used included Python (scikit-learn, pandas, numpy), SQL for data extraction, and Tableau for visualization.">
-                  View Details
-                </button>
               </div>
             </div>
             
-            <div class="project-item">
+            <div class="project-item" data-title="Supply Chain Optimization" data-image="/api/placeholder/600/400" data-description="This project focused on optimizing supply chain operations through advanced forecasting techniques. By implementing time series analysis models (ARIMA, Prophet) and machine learning algorithms, I created a system that accurately predicted inventory needs across multiple product categories and warehouses. The solution integrated with existing ERP systems and provided actionable recommendations for purchasing teams. The implementation reduced excess inventory by 18% and decreased stockouts by 22%, resulting in significant cost savings and improved customer satisfaction.">
               <div class="project-image" style="background-image: url('/api/placeholder/600/400')"></div>
               <div class="project-info">
                 <h3>Supply Chain Optimization</h3>
-                <p>
-                  Created an automated inventory forecasting system that reduced excess inventory by 18% and decreased stockouts by 22% through time series analysis.
-                </p>
+                <p>Created an automated inventory forecasting system that reduced excess inventory by 18% and decreased stockouts by 22% through time series analysis.</p>
                 <div class="project-tags">
                   <span>R</span>
                   <span>Time Series Analysis</span>
                   <span>Optimization</span>
                 </div>
-                <button class="view-project" data-title="Supply Chain Optimization" data-image="/api/placeholder/600/400" data-description="This project focused on optimizing supply chain operations through advanced forecasting techniques. By implementing time series analysis models (ARIMA, Prophet) and machine learning algorithms, I created a system that accurately predicted inventory needs across multiple product categories and warehouses. The solution integrated with existing ERP systems and provided actionable recommendations for purchasing teams. The implementation reduced excess inventory by 18% and decreased stockouts by 22%, resulting in significant cost savings and improved customer satisfaction.">
-                  View Details
-                </button>
               </div>
             </div>
             
-            <div class="project-item">
+            <div class="project-item" data-title="Interactive Sales Dashboard" data-image="/api/placeholder/600/400" data-description="This project involved creating a comprehensive, interactive sales dashboard that provided real-time insights into sales performance across regions, products, and customer segments. The solution involved designing an efficient data pipeline to extract and transform data from multiple sources, then creating intuitive visualizations that enabled stakeholders to quickly identify trends and opportunities. The dashboard featured drill-down capabilities, customizable filters, and automated alerts for key performance indicators. The implementation significantly improved the company's ability to respond to market changes and identify growth opportunities.">
               <div class="project-image" style="background-image: url('/api/placeholder/600/400')"></div>
               <div class="project-info">
                 <h3>Interactive Sales Dashboard</h3>
-                <p>
-                  Designed and implemented a real-time sales performance dashboard that increased data accessibility for stakeholders and improved decision-making processes.
-                </p>
+                <p>Designed and implemented a real-time sales performance dashboard that increased data accessibility for stakeholders and improved decision-making processes.</p>
                 <div class="project-tags">
                   <span>Tableau</span>
                   <span>SQL</span>
                   <span>Data Engineering</span>
                 </div>
-                <button class="view-project" data-title="Interactive Sales Dashboard" data-image="/api/placeholder/600/400" data-description="This project involved creating a comprehensive, interactive sales dashboard that provided real-time insights into sales performance across regions, products, and customer segments. The solution involved designing an efficient data pipeline to extract and transform data from multiple sources, then creating intuitive visualizations that enabled stakeholders to quickly identify trends and opportunities. The dashboard featured drill-down capabilities, customizable filters, and automated alerts for key performance indicators. The implementation significantly improved the company's ability to respond to market changes and identify growth opportunities.">
-                  View Details
-                </button>
               </div>
             </div>
 
-            <div class="project-item">
+            <div class="project-item" data-title="Predicting IQs" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" data-description="This project explores the fascinating intersection of machine learning and cognitive science, attempting to predict IQ scores using various behavioral and cognitive metrics. The model achieved 85% accuracy in predictions across diverse demographic groups, while carefully addressing ethical considerations and potential biases in the methodology. Key features included data preprocessing for fairness, ensemble learning techniques, and comprehensive validation across different population segments. The findings provide valuable insights into the relationships between various cognitive metrics and IQ scores, while highlighting important considerations for ethical AI development." data-medium-url="https://medium.com/@erenmuller/predicting-iqs-machine-learning-approach">
               <div class="project-image" style="background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg')"></div>
               <div class="project-info">
                 <h3>Predicting IQs</h3>
-                <p>
-                  Developed a machine learning model to predict IQ scores based on various cognitive and behavioral metrics, achieving 85% accuracy in predictions across diverse demographic groups.
-                </p>
+                <p>Developed a machine learning model to predict IQ scores based on various cognitive and behavioral metrics, achieving 85% accuracy in predictions across diverse demographic groups.</p>
                 <div class="project-tags">
                   <span>Python</span>
                   <span>Machine Learning</span>
                   <span>Statistical Analysis</span>
                 </div>
-                <button class="view-project" data-title="Predicting IQs" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" data-description="This project explores the fascinating intersection of machine learning and cognitive science, attempting to predict IQ scores using various behavioral and cognitive metrics. The model achieved 85% accuracy in predictions across diverse demographic groups, while carefully addressing ethical considerations and potential biases in the methodology. Key features included data preprocessing for fairness, ensemble learning techniques, and comprehensive validation across different population segments. The findings provide valuable insights into the relationships between various cognitive metrics and IQ scores, while highlighting important considerations for ethical AI development." data-medium-url="https://medium.com/@erenmuller/predicting-iqs-machine-learning-approach">
-                  View Details
-                </button>
               </div>
             </div>
 
-            <div class="project-item">
+            <div class="project-item" data-title="Customer Churn Prediction Model" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" data-description="This project involved developing a sophisticated machine learning model to predict customer churn for a SaaS platform. Using historical customer data, including usage patterns, support tickets, and engagement metrics, the model achieved 89% accuracy in identifying at-risk customers. The system was integrated with the company's CRM to automatically flag high-risk accounts for the customer success team. Implementation of proactive retention strategies based on the model's predictions led to a 15% reduction in customer churn rate. Technologies used included Python, PostgreSQL, scikit-learn, and various machine learning algorithms including Random Forest and XGBoost.">
               <div class="project-image" style="background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg')"></div>
               <div class="project-info">
                 <h3>Customer Churn Prediction Model</h3>
-                <p>
-                  Built a machine learning model to predict customer churn with 89% accuracy, enabling proactive retention strategies and reducing churn rate by 15%.
-                </p>
+                <p>Built a machine learning model to predict customer churn with 89% accuracy, enabling proactive retention strategies and reducing churn rate by 15%.</p>
                 <div class="project-tags">
                   <span>Python</span>
                   <span>SQL</span>
                   <span>Machine Learning</span>
                   <span>Scikit-learn</span>
                 </div>
-                <button class="view-project" data-title="Customer Churn Prediction Model" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" data-description="This project involved developing a sophisticated machine learning model to predict customer churn for a SaaS platform. Using historical customer data, including usage patterns, support tickets, and engagement metrics, the model achieved 89% accuracy in identifying at-risk customers. The system was integrated with the company's CRM to automatically flag high-risk accounts for the customer success team. Implementation of proactive retention strategies based on the model's predictions led to a 15% reduction in customer churn rate. Technologies used included Python, PostgreSQL, scikit-learn, and various machine learning algorithms including Random Forest and XGBoost.">
-                  View Details
-                </button>
               </div>
             </div>
 
-            <div class="project-item">
+            <div class="project-item" data-title="Product Analytics Dashboard" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" data-description="This project delivered a comprehensive product analytics dashboard that provided real-time insights into key product metrics. The dashboard integrated data from multiple sources including user behavior tracking, sales data, and customer feedback. Features included customizable widgets, interactive visualizations, and automated report generation. The implementation significantly improved decision-making processes by reducing reporting time from days to minutes and providing actionable insights to stakeholders. Technologies used included React for the frontend, Node.js for the backend, D3.js for data visualization, and AWS services for hosting and data processing.">
               <div class="project-image" style="background-image: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg')"></div>
               <div class="project-info">
                 <h3>Product Analytics Dashboard</h3>
-                <p>
-                  Created a real-time analytics dashboard for product metrics, integrating data from multiple sources and reducing reporting time from days to minutes.
-                </p>
+                <p>Created a real-time analytics dashboard for product metrics, integrating data from multiple sources and reducing reporting time from days to minutes.</p>
                 <div class="project-tags">
                   <span>React</span>
                   <span>Node.js</span>
                   <span>D3.js</span>
                   <span>AWS</span>
                 </div>
-                <button class="view-project" data-title="Product Analytics Dashboard" data-image="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" data-description="This project delivered a comprehensive product analytics dashboard that provided real-time insights into key product metrics. The dashboard integrated data from multiple sources including user behavior tracking, sales data, and customer feedback. Features included customizable widgets, interactive visualizations, and automated report generation. The implementation significantly improved decision-making processes by reducing reporting time from days to minutes and providing actionable insights to stakeholders. Technologies used included React for the frontend, Node.js for the backend, D3.js for data visualization, and AWS services for hosting and data processing.">
-                  View Details
-                </button>
               </div>
             </div>
           </div>

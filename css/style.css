@@ -513,41 +513,103 @@ nav ul li a.active::after {
   gap: 2rem;
 }
 
+.skill-category {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed);
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+}
+
 .skill-category h3 {
   font-size: 1.4rem;
   color: var(--color-primary);
   margin-bottom: 1.5rem;
   text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.skill-category h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
 }
 
 .skill-grid {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .skill-item {
   background-color: var(--color-light-gray);
-  padding: 1rem;
+  padding: 1.2rem;
   border-radius: 8px;
+  transition: transform var(--transition-speed);
+}
+
+.skill-item:hover {
+  transform: translateX(10px);
 }
 
 .skill-name {
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name::after {
+  content: attr(data-level);
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+}
+
+.skill-details {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-top: 0.5rem;
 }
 
 .skill-bar {
   height: 8px;
-  background-color: #ddd;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   overflow: hidden;
 }
 
 .skill-progress {
   height: 100%;
-  background-color: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-primary) 100%);
   border-radius: 4px;
   transition: width 1s ease-in-out;
+}
+
+/* Skill icons */
+.skill-icon {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  color: var(--color-primary);
+}
+
+/* Skill categories */
+.skill-category[data-category="programming"] .skill-progress {
+  background: linear-gradient(90deg, #6E7C7C 0%, #435560 100%);
+}
+
+.skill-category[data-category="data-science"] .skill-progress {
+  background: linear-gradient(90deg, #92967D 0%, #6E7C7C 100%);
 }
 
 /* Projects Section */
@@ -557,24 +619,26 @@ nav ul li a.active::after {
   gap: 2rem;
   padding: 1rem 0;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .projects-grid::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome and Safari */
+  display: none;
 }
 
 .project-item {
   flex: 0 0 auto;
-  width: 350px; /* Fixed width for each project card */
+  width: 350px;
   background-color: var(--color-white);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
   scroll-snap-align: start;
+  cursor: pointer;
+  position: relative;
 }
 
 .project-item:hover {
@@ -586,10 +650,12 @@ nav ul li a.active::after {
   height: 200px;
   background-size: cover;
   background-position: center;
+  pointer-events: none;
 }
 
 .project-info {
   padding: 1.5rem;
+  pointer-events: none;
 }
 
 .project-info h3 {
@@ -621,21 +687,7 @@ nav ul li a.active::after {
 }
 
 .view-project {
-  background-color: var(--color-primary);
-  border: none;
-  color: var(--color-white);
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition-speed);
-  display: inline-block;
-}
-
-.view-project:hover {
-  background-color: var(--color-secondary);
-  transform: translateY(-3px);
+  display: none; /* Hide the button since the whole card is clickable */
 }
 
 /* Contact Section */

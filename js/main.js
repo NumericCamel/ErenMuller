@@ -59,17 +59,17 @@ class ProjectModal extends Modal {
         this.pdfViewButton = document.querySelector('.pdf-view-button');
         this.description = document.getElementById('modal-description');
         this.mediumButton = document.getElementById('medium-button');
-        this.initProjectButtons();
+        this.initProjectItems();
     }
 
-    initProjectButtons() {
-        document.querySelectorAll('.view-project').forEach(button => {
-            button.addEventListener('click', () => this.showProject(button));
+    initProjectItems() {
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.addEventListener('click', () => this.showProject(item));
         });
     }
 
-    showProject(button) {
-        const data = button.dataset;
+    showProject(item) {
+        const data = item.dataset;
         this.title.textContent = data.title;
         
         // Handle PDF or image display
