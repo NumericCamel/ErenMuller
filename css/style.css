@@ -905,7 +905,7 @@ footer p {
   }
 }
 
-/* Add these styles to your CSS file */
+/* Enhanced modal styling for PDFs */
 #modal-media-container {
   width: 100%;
   margin-bottom: 1.5rem;
@@ -913,25 +913,50 @@ footer p {
   overflow: hidden;
 }
 
-#modal-image,
-#modal-pdf {
+#pdf-container {
   width: 100%;
+  position: relative;
+  padding-bottom: 129%; /* Taller aspect ratio for mobile */
+}
+
+#modal-pdf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
   border-radius: 8px;
 }
 
-#modal-pdf {
-  min-height: 500px;
-}
-
-/* Make PDF responsive on mobile */
-@media (max-width: 768px) {
-  #modal-pdf {
-    min-height: 400px;
+/* Make PDF responsive on different devices */
+@media (min-width: 768px) {
+  #pdf-container {
+    padding-bottom: 100%; /* Square aspect ratio for tablets */
   }
 }
 
+@media (min-width: 992px) {
+  #pdf-container {
+    padding-bottom: 75%; /* Wider aspect ratio for desktops */
+  }
+}
+
+/* Ensure modal content doesn't overflow on small screens */
+.modal-content {
+  width: 95%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
 @media (max-width: 576px) {
-  #modal-pdf {
-    min-height: 300px;
+  .modal-content {
+    padding: 1rem;
+  }
+  
+  #modal-title {
+    font-size: 1.5rem;
   }
 }
