@@ -135,7 +135,7 @@ class EducationModal extends Modal {
     }
 
     initEducationItems() {
-        document.querySelectorAll('.education-item.clickable').forEach(item => {
+        document.querySelectorAll('.education-item.clickable, .timeline-education.clickable').forEach(item => {
             item.addEventListener('click', () => this.showEducation(item));
         });
     }
