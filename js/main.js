@@ -272,8 +272,80 @@ class ScrollAnimations {
     }
 }
 
-// Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * Collapsible Sections
+ * Handles the collapsing and expanding of sections when their headers are clicked
+ */
+class CollapsibleSections {
+    constructor() {
+        this.headers = document.querySelectorAll('.collapsible-header');
+        this.init();
+    }
+
+    init() {
+        this.headers.forEach(header => {
+            header.addEventListener('click', (event) => this.toggleSection(header, event));
+            
+            // Add a subtle entrance animation when the page loads
+            const content = header.nextElementSibling;
+            if (content && content.classList.contains('collapsible-content')) {
+                // Start with a slight delay for a staggered effect
+                setTimeout(() => {
+                    content.style.transition = 'max-height 0.6s cubic-bezier(0.44, 0.05, 0.21, 1), opacity 0.4s ease, transform 0.4s ease';
+                }, 100);
+            }
+        });
+    }
+
+    toggleSection(header, event) {
+        const content = header.nextElementSibling;
+        
+        // Create a ripple effect on click
+        this.createRippleEffect(header, event);
+        
+        if (content && content.classList.contains('collapsible-content')) {
+            // Toggle the collapsed state
+            header.classList.toggle('collapsed');
+            content.classList.toggle('collapsed');
+            
+            // Add a subtle bounce effect when expanding
+            if (!content.classList.contains('collapsed')) {
+                content.style.animation = 'none';
+                setTimeout(() => {
+                    content.style.animation = 'bounceOpen 0.5s ease forwards';
+                }, 10);
+            }
+        }
+    }
+    
+    createRippleEffect(element, event) {
+        const ripple = document.createElement('span');
+        const rect = element.getBoundingClientRect();
+        
+        // Calculate position relative to the clicked element
+        const x = event ? (event.clientX - rect.left) : (rect.width / 2);
+        const y = event ? (event.clientY - rect.top) : (rect.height / 2);
+        
+        // Style the ripple
+        ripple.className = 'ripple-effect';
+        
+        // Set initial size
+        const size = Math.max(rect.width, rect.height) * 2;
+        ripple.style.width = `${size}px`;
+        ripple.style.height = `${size}px`;
+        ripple.style.left = `${x - size/2}px`;
+        ripple.style.top = `${y - size/2}px`;
+        
+        // Add and then remove the ripple
+        element.appendChild(ripple);
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+}
+
+// Initialize all components when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
     new MobileMenu();
     new ProjectModal();
     new EducationModal();
@@ -281,4 +353,5 @@ document.addEventListener('DOMContentLoaded', () => {
     new ProjectsScroll();
     new ContactForm();
     new ScrollAnimations();
+    new CollapsibleSections();
 }); 
