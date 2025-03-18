@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemon Tree Garden</title>
-    <link rel="stylesheet" href="lemon.css">
+    <title>Lemon Design Studio | UI/UX & Brand Website Design</title>
+    <link rel="stylesheet" href="lemon-services.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="cursor"></div>
@@ -23,146 +24,312 @@
     <header>
         <div class="logo">
             <div class="logo-icon">🍋</div>
-            <h1>Lemon Tree Garden</h1>
+            <h1>Lemon Design Studio</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h2>Growing <span class="highlight">Fresh</span> Ideas</h2>
-                <p>Front-end development with a zest for innovation</p>
-                <button class="cta-button" id="exploreBtn">Explore Garden</button>
+                <h2>Fresh <span class="highlight">UI/UX Design</span> That Converts</h2>
+                <p>We craft beautiful, user-centered websites that drive results for your business</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="cta-button primary">View Pricing</a>
+                    <a href="#contact" class="cta-button secondary">Get a Quote</a>
+                </div>
             </div>
             <div class="hero-image">
-                <div class="lemon-tree">
-                    <div class="trunk"></div>
-                    <div class="branches"></div>
-                    <div class="foliage"></div>
-                    <div class="interactive-lemon" id="interactiveLemon1"></div>
-                    <div class="interactive-lemon" id="interactiveLemon2"></div>
-                    <div class="interactive-lemon" id="interactiveLemon3"></div>
+                <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="UI/UX Design Illustration">
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We provide end-to-end design solutions to help your brand stand out</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered interfaces that delight your customers and drive conversions through intuitive experiences.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Website Development</h3>
+                    <p>Fast, responsive, and accessible websites built with modern technologies that perform across all devices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Brand Identity</h3>
+                    <p>Cohesive visual systems that communicate your brand's values and connect with your target audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>SEO Optimization</h3>
+                    <p>Strategic optimization to improve your visibility in search engines and drive organic traffic.</p>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
-            <h2>About The Garden</h2>
-            <div class="about-content">
-                <p>Welcome to Lemon Tree Garden, where creativity blooms and code flourishes. This digital garden represents my passion for crafting beautiful, interactive, and accessible web experiences.</p>
-                <div class="about-feature">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Sustainable Code</h3>
-                    <p>Clean, maintainable, and optimized for growth</p>
-                </div>
-                <div class="about-feature">
-                    <div class="feature-icon">🍋</div>
-                    <h3>Fresh Design</h3>
-                    <p>Bold aesthetics with intuitive user experiences</p>
-                </div>
-                <div class="about-feature">
-                    <div class="feature-icon">🌞</div>
-                    <h3>Bright Solutions</h3>
-                    <p>Innovative approaches to complex challenges</p>
-                </div>
+        <section id="process" class="process">
+            <div class="section-header">
+                <h2>Our Design Process</h2>
+                <p>A proven methodology that delivers exceptional results</p>
             </div>
-        </section>
-
-        <section id="skills" class="skills">
-            <h2>Technical Harvest</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Core Technologies</h3>
-                    <div class="skill-item" data-skill="HTML5">
-                        <div class="skill-fill" style="width: 95%"></div>
-                        <span class="skill-name">HTML5</span>
-                    </div>
-                    <div class="skill-item" data-skill="CSS3">
-                        <div class="skill-fill" style="width: 90%"></div>
-                        <span class="skill-name">CSS3</span>
-                    </div>
-                    <div class="skill-item" data-skill="JavaScript">
-                        <div class="skill-fill" style="width: 88%"></div>
-                        <span class="skill-name">JavaScript</span>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Discovery</h3>
+                        <p>We learn about your business, goals, target audience, and competitors to establish a solid foundation.</p>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Libraries</h3>
-                    <div class="skill-item" data-skill="React">
-                        <div class="skill-fill" style="width: 85%"></div>
-                        <span class="skill-name">React</span>
-                    </div>
-                    <div class="skill-item" data-skill="Vue">
-                        <div class="skill-fill" style="width: 78%"></div>
-                        <span class="skill-name">Vue</span>
-                    </div>
-                    <div class="skill-item" data-skill="GSAP">
-                        <div class="skill-fill" style="width: 80%"></div>
-                        <span class="skill-name">GSAP</span>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Strategy</h3>
+                        <p>We develop a comprehensive plan that aligns with your business objectives and user needs.</p>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & Workflow</h3>
-                    <div class="skill-item" data-skill="Git">
-                        <div class="skill-fill" style="width: 92%"></div>
-                        <span class="skill-name">Git</span>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Design</h3>
+                        <p>We create wireframes and visual designs that bring your brand to life with a focus on user experience.</p>
                     </div>
-                    <div class="skill-item" data-skill="Webpack">
-                        <div class="skill-fill" style="width: 75%"></div>
-                        <span class="skill-name">Webpack</span>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Development</h3>
+                        <p>We build your website with clean, efficient code that ensures performance and scalability.</p>
                     </div>
-                    <div class="skill-item" data-skill="Figma">
-                        <div class="skill-fill" style="width: 83%"></div>
-                        <span class="skill-name">Figma</span>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Launch & Support</h3>
+                        <p>We deploy your site and provide ongoing support to ensure continued success.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <h2>Project Orchard</h2>
-            <div class="project-grid">
-                <article class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Citrus Commerce</h3>
-                    <p>An e-commerce platform with animated product showcases</p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>Redux</span>
-                        <span>GSAP</span>
+        <section id="pricing" class="pricing">
+            <div class="section-header">
+                <h2>Pricing Plans</h2>
+                <p>Flexible options tailored to your business needs</p>
+            </div>
+            <div class="pricing-tiers">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Essential</h3>
+                        <div class="price">
+                            <span class="amount">$1,499</span>
+                            <span class="period">one-time</span>
+                        </div>
+                        <p>Perfect for small businesses and startups</p>
                     </div>
-                    <a href="#" class="project-link">View Project</a>
-                </article>
-                <article class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Lemon Dashboard</h3>
-                    <p>Interactive analytics dashboard with real-time data visualization</p>
-                    <div class="project-tags">
-                        <span>Vue</span>
-                        <span>D3.js</span>
-                        <span>Firebase</span>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 5-page responsive website</li>
+                            <li><i class="fas fa-check"></i> Basic UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Mobile-friendly layout</li>
+                            <li><i class="fas fa-check"></i> Contact form integration</li>
+                            <li><i class="fas fa-check"></i> Basic SEO setup</li>
+                            <li><i class="fas fa-check"></i> 1 round of revisions</li>
+                            <li><i class="fas fa-check"></i> 30 days of support</li>
+                            <li class="not-included"><i class="fas fa-times"></i> Custom animations</li>
+                            <li class="not-included"><i class="fas fa-times"></i> Advanced integrations</li>
+                        </ul>
                     </div>
-                    <a href="#" class="project-link">View Project</a>
-                </article>
-                <article class="project-card">
-                    <div class="project-image"></div>
-                    <h3>Zesty Portfolio</h3>
-                    <p>Responsive portfolio template with parallax scrolling effects</p>
-                    <div class="project-tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
+                    <a href="#contact" class="pricing-cta">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="amount">$3,499</span>
+                            <span class="period">one-time</span>
+                        </div>
+                        <p>Ideal for growing businesses</p>
                     </div>
-                    <a href="#" class="project-link">View Project</a>
-                </article>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 10-page responsive website</li>
+                            <li><i class="fas fa-check"></i> Advanced UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Mobile-first approach</li>
+                            <li><i class="fas fa-check"></i> Custom contact forms</li>
+                            <li><i class="fas fa-check"></i> Comprehensive SEO setup</li>
+                            <li><i class="fas fa-check"></i> 3 rounds of revisions</li>
+                            <li><i class="fas fa-check"></i> 60 days of support</li>
+                            <li><i class="fas fa-check"></i> Basic animations</li>
+                            <li><i class="fas fa-check"></i> CMS integration</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="pricing-cta">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="amount">$7,999</span>
+                            <span class="period">one-time</span>
+                        </div>
+                        <p>For established businesses with complex needs</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 20+ page custom website</li>
+                            <li><i class="fas fa-check"></i> Premium UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Responsive across all devices</li>
+                            <li><i class="fas fa-check"></i> Advanced form functionality</li>
+                            <li><i class="fas fa-check"></i> Advanced SEO strategy</li>
+                            <li><i class="fas fa-check"></i> Unlimited revisions</li>
+                            <li><i class="fas fa-check"></i> 90 days of support</li>
+                            <li><i class="fas fa-check"></i> Custom animations</li>
+                            <li><i class="fas fa-check"></i> E-commerce functionality</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="pricing-cta">Get Started</a>
+                </div>
+            </div>
+            <div class="custom-solution">
+                <h3>Need a custom solution?</h3>
+                <p>We offer tailored packages for specific business requirements.</p>
+                <a href="#contact" class="cta-button secondary">Contact Us</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>See how we've helped businesses transform their digital presence</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-commerce Website Design">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Citrus Commerce</h3>
+                        <p>E-commerce website with custom product showcases</p>
+                        <a href="#" class="portfolio-link">View Case Study</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="SaaS Dashboard Design">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Lemon Analytics</h3>
+                        <p>SaaS dashboard with real-time data visualization</p>
+                        <a href="#" class="portfolio-link">View Case Study</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Corporate Website Design">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Zesty Finance</h3>
+                        <p>Corporate website with interactive elements</p>
+                        <a href="#" class="portfolio-link">View Case Study</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mobile App Design">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Fresh Mobile</h3>
+                        <p>Mobile app design with seamless user experience</p>
+                        <a href="#" class="portfolio-link">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-cta">
+                <a href="#" class="cta-button secondary">View All Projects</a>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about working with us</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Lemon Design Studio transformed our outdated website into a modern, user-friendly platform that has significantly increased our conversion rates. Their attention to detail and strategic approach to UI/UX design made all the difference."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah Johnson">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Director, TechFlow Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Working with the Lemon Design team was a game-changer for our business. They not only created a beautiful website but also provided valuable insights that helped us better understand our users. The ROI has been exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>CEO, Innovate Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"The team at Lemon Design Studio exceeded our expectations at every turn. Their process is thorough, their communication is clear, and their designs are exceptional. We've already recommended them to several partners."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <p>Founder, Bloom Boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="control-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="control-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+                <button class="control-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to transform your digital presence?</h2>
+                <p>Let's create something amazing together.</p>
+                <a href="#contact" class="cta-button primary">Get Started</a>
             </div>
         </section>
     </main>
@@ -170,25 +337,60 @@
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-info">
-                <h2>Let's Grow Together</h2>
-                <p>Ready to add some zest to your next project?</p>
+                <div class="footer-logo">
+                    <div class="logo-icon">🍋</div>
+                    <h2>Lemon Design Studio</h2>
+                </div>
+                <p>We create beautiful, functional websites that help businesses grow.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
                 <form class="contact-form">
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Message" required></textarea>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="essential">Essential Package</option>
+                            <option value="professional">Professional Package</option>
+                            <option value="enterprise">Enterprise Package</option>
+                            <option value="custom">Custom Solution</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                    </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
+            
             <div class="footer-links">
-                <div class="social-links">
-                    <a href="#" class="social-link">GitHub</a>
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
-                </div>
-                <p class="copyright">© 2025 Lemon Tree Garden. All rights reserved.</p>
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Lemon Design Studio. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="lemon.js"></script>
+    <script src="lemon-services.js"></script>
 </body>
 </html>
