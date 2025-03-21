@@ -606,7 +606,7 @@
                 </div>
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="person3.jpeg" alt="Elena Koval">
+                        <img src="pers1.jpeg" alt="Elena Koval">
                     </div>
                     <h3>Elena Koval</h3>
                     <p>Growth Strategist</p>
@@ -614,7 +614,7 @@
                 </div>
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="person4.jpeg" alt="Marcus Kim">
+                        <img src="pers2.png" alt="Marcus Kim">
                     </div>
                     <h3>Dilena Commens</h3>
                     <p>Marketing Analyst</p>
@@ -640,22 +640,22 @@
                     <div class="success-message" id="success-message">
                         Thank you for reaching out! We'll be in touch shortly.
                     </div>
-                    <form id="inquiry-form">
+                    <form id="inquiry-form" action="https://formspree.io/f/xgvaarzw" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="company">Company</label>
-                            <input type="text" id="company" class="form-control" required>
+                            <input type="text" id="company" name="company" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message">How can we help?</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
                         <button type="submit" class="btn" style="width: 100%;">Send Inquiry</button>
                         <div class="form-loader" id="form-loader"></div>
@@ -723,68 +723,19 @@
         
         // Form submission handling
         document.getElementById('inquiry-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+            // Show loading indicator
             const formLoader = document.getElementById('form-loader');
             const successMessage = document.getElementById('success-message');
             
-            // Show loading indicator
             formLoader.style.display = 'block';
             
-            // Get form data
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real implementation, you would send this data to your backend
-            // For this demo, we'll simulate a successful submission after a delay
+            // Form will be handled by Formspree
+            // We'll just show the loader and then the success message after submission
             setTimeout(() => {
-                // Hide loader
+                // This will only run if the form submission is interrupted
+                // Otherwise, Formspree will handle the redirect
                 formLoader.style.display = 'none';
-                
-                // Show success message
-                successMessage.style.display = 'block';
-                
-                // Reset form
-                document.getElementById('inquiry-form').reset();
-                
-                // Log the data that would be sent (in real implementation, this would go to your email)
-                console.log({
-                    name,
-                    email,
-                    company,
-                    message,
-                    sentAt: new Date().toString()
-                });
-                
-                // In a real implementation, you would use something like:
-                /*
-                fetch('your-endpoint', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        company,
-                        message
-                    }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    formLoader.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    document.getElementById('inquiry-form').reset();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    formLoader.style.display = 'none';
-                    // Show error message
-                });
-                */
-            }, 1500);
+            }, 2000);
         });
         
         // Parallax effect for floating elements
