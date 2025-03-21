@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CQCG5DHHQ"></script>
+    <title>Redstone AI | Data Science for Marketing Analytics</title>
+    <style>
+        :root {
+            --primary: #ff3a4c;
+            --secondary: #121212;
+            --text: #f8f8f8;
+            --accent: #3a1c71;
+            --gradient-start: #3a1c71;
+            --gradient-mid: #d76d77;
+            --gradient-end: #ff3a4c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background: rgba(18, 18, 18, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            width: 60%;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 58, 76, 0.3);
+        }
+        
+        .hero-visual {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 80%;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .data-visualization {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0.8;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: 30%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 1s;
+            background: linear-gradient(135deg, var(--gradient-mid), var(--gradient-end));
+        }
+        
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 60%;
+            animation-delay: 2s;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid));
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .service-card p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .service-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--secondary), #1a1a1a);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-photo:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(58, 28, 113, 0.3), rgba(255, 58, 76, 0.3));
+        }
+        
+        .team-member h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .team-member p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-member .bio {
+            opacity: 0.8;
+            font-size: 15px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 4px;
+            color: var(--text);
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: var(--text);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero p {
+                margin: 0 auto 30px;
+            }
+            
+            .hero-visual {
+                opacity: 0.3;
+                width: 100%;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(39, 174, 96, 0.2);
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        /* Form loader */
+        .form-loader {
+            display: none;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s infinite linear;
+            margin: 10px auto;
+        }
+        
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">REDSTONE<span>AI</span></div>
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Marketing with <span>Data Science</span></h1>
+                <p>Leverage AI-powered analytics to unlock growth opportunities, optimize campaigns, and maximize your marketing ROI.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            <div class="hero-visual">
+                <div class="data-visualization">
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+                    <div class="floating-element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Data Discovery Audit</h3>
+                    <p>We analyze your existing data infrastructure to identify missed opportunities and growth levers. Our comprehensive audit reveals hidden patterns and actionable insights.</p>
+                    <div class="service-price">€500–€1,000 one-time</div>
+                </div>
+                <div class="service-card">
+                    <h3>Growth Lab</h3>
+                    <p>Custom dashboards, customer segmentation, and ad optimization tools built specifically for your business. Ongoing support and refinement based on performance data.</p>
+                    <div class="service-price">€1,000–€2,500/month</div>
+                </div>
+                <div class="service-card">
+                    <h3>Performance Ads</h3>
+                    <p>We manage your ad campaigns using our data-driven insights. Performance-based pricing ensures our incentives are aligned with your growth goals.</p>
+                    <div class="service-price">% of ad spend or results-based</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/400/400" alt="Sarah Chen">
+                    </div>
+                    <h3>Sarah Chen</h3>
+                    <p>Founder & CEO</p>
+                    <div class="bio">Former Google data scientist with 10+ years experience in marketing analytics and machine learning.</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/400/400" alt="Amir Patel">
+                    </div>
+                    <h3>Amir Patel</h3>
+                    <p>Chief Analytics Officer</p>
+                    <div class="bio">Specializes in predictive modeling and conversion optimization for e-commerce and SaaS companies.</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/400/400" alt="Elena Koval">
+                    </div>
+                    <h3>Elena Koval</h3>
+                    <p>Growth Strategist</p>
+                    <div class="bio">Former CMO with expertise in scaling startups through data-driven marketing strategies.</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img src="/api/placeholder/400/400" alt="Marcus Kim">
+                    </div>
+                    <h3>Marcus Kim</h3>
+                    <p>Data Engineer</p>
+                    <div class="bio">Expert in building scalable data pipelines and visualization tools for marketing teams.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Ready to unlock your data potential?</h3>
+                    <p>We're ready to help you transform your marketing approach with data science. Fill out the form and we'll get back to you within 24 hours to discuss how we can help your business grow.</p>
+                    <p>Our team will conduct a preliminary analysis of your current marketing setup to identify quick wins and long-term opportunities.</p>
+                </div>
+                <div class="contact-form">
+                    <div class="success-message" id="success-message">
+                        Thank you for reaching out! We'll be in touch shortly.
+                    </div>
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can we help?</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Inquiry</button>
+                        <div class="form-loader" id="form-loader"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Data Discovery Audit</a></li>
+                        <li><a href="#">Growth Lab</a></li>
+                        <li><a href="#">Performance Ads</a></li>
+                        <li><a href="#">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">White Papers</a></li>
+                        <li><a href="#">Data Guides</a></li>
+                        <li><a href="#">Marketing Analytics 101</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@redstone-ai.com">info@redstone-ai.com</a></li>
+                        <li><a href="tel:+123456789">+1 (234) 567-89</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Redstone AI. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission handling
+        document.getElementById('inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formLoader = document.getElementById('form-loader');
+            const successMessage = document.getElementById('success-message');
+            
+            // Show loading indicator
+            formLoader.style.display = 'block';
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to your backend
+            // For this demo, we'll simulate a successful submission after a delay
+            setTimeout(() => {
+                // Hide loader
+                formLoader.style.display = 'none';
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                document.getElementById('inquiry-form').reset();
+                
+                // Log the data that would be sent (in real implementation, this would go to your email)
+                console.log({
+                    name,
+                    email,
+                    company,
+                    message,
+                    sentAt: new Date().toString()
+                });
+                
+                // In a real implementation, you would use something like:
+                /*
+                fetch('your-endpoint', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        company,
+                        message
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    formLoader.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    document.getElementById('inquiry-form').reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    formLoader.style.display = 'none';
+                    // Show error message
+                });
+                */
+            }, 1500);
+        });
+        
+        // Parallax effect for floating elements
+        document.addEventListener('mousemove', (e) => {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            floatingElements.forEach((el, index) => {
+                const speed = 0.03 + (index * 0.01);
+                const x = (window.innerWidth - e.pageX * speed) / 100;
+                const y = (window.innerHeight - e.pageY * speed) / 100;
+                
+                el.style.transform = `translateX(${x}px) translateY(${y}px) scale(1)`;
+            });
+        });
+    </script>
+</body>
+</html>
